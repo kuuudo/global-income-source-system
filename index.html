@@ -1,0 +1,860 @@
+<!DOCTYPE html><html class="dark" lang="zh-TW"><head>
+<meta charset="utf-8"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Global Income Source System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#353534",
+                        "on-background": "#e5e2e1",
+                        "surface": "#131313",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-surface-variant": "#e2bfb2",
+                        "surface-container": "#201f1f",
+                        "on-error": "#690005",
+                        "primary": "#ffb599",
+                        "surface-container-low": "#1c1b1b",
+                        "on-secondary-container": "#b4b5b5",
+                        "on-primary-container": "#4f1700",
+                        "on-tertiary-container": "#292a2a",
+                        "tertiary-fixed-dim": "#c7c6c6",
+                        "on-tertiary": "#2f3131",
+                        "primary-container": "#f66018",
+                        "tertiary-container": "#909191",
+                        "secondary-container": "#454747",
+                        "tertiary-fixed": "#e3e2e2",
+                        "on-primary": "#5a1c00",
+                        "surface-variant": "#353534",
+                        "secondary": "#c6c6c7",
+                        "on-secondary": "#2f3131",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary": "#c7c6c6",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#e2e2e2",
+                        "outline": "#a98a7e",
+                        "background": "#131313",
+                        "outline-variant": "#5a4138",
+                        "on-tertiary-fixed-variant": "#464747",
+                        "surface-bright": "#393939",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "primary-fixed": "#ffdbce",
+                        "inverse-primary": "#a73a00",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-dim": "#131313",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#7f2b00",
+                        "on-primary-fixed": "#370e00",
+                        "surface-tint": "#ffb599",
+                        "primary-fixed-dim": "#ffb599",
+                        "inverse-surface": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-page": "5vw",
+                        "stack-gap": "24px",
+                        "container-max": "1280px",
+                        "gutter": "32px",
+                        "section-gap": "160px"
+                    },
+                    "fontFamily": {
+                        "headline-h2": ["Manrope"],
+                        "headline-h1": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "display": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-caps": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "display": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "body-lg": ["20px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background-color: #171717;
+            border: 1px solid rgba(163, 163, 163, 0.2);
+        }
+        .btn-primary {
+            background-color: #EA580C;
+            color: #FFFFFF;
+            border-radius: 0.25rem;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            filter: brightness(1.1);
+            box-shadow: 0 0 15px rgba(234, 88, 12, 0.4);
+        }
+    </style>
+<style id="custom-cursor" type="text/css">body button, body [type='button'], body input[type='reset'], body input[type='submit'], body [role="button"], ::-webkit-search-cancel-button, ::-webkit-search-decoration, ::-webkit-scrollbar-button, ::-webkit-file-upload-button, [role^=button], .cc_pointer, [type="search"]::-webkit-search-cancel-button, a, select, [type="search"]::-webkit-search-decoration, .paper-button, .ytp-progress-bar-container, input[type=submit], :link, :visited, a > *, img,  ::-webkit-scrollbar-button, .ogdlpmhglpejoiomcodnpjnfgcpmgale_pointer, ::-webkit-file-upload-button, .ytp-volume-panel, #myogdlpmhglpejoiomcodnpjnfgcpmgale .icon, body .custom-cursor-on-hover {cursor: url("data:image/png;base64,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") 19 0, pointer !important;} html,body,body select,body .custom-cursor-default-hover {cursor: url("data:image/png;base64,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") 0 0, auto !important;}</style><style>
+    /* Reveal animations base state */
+    .reveal {
+        opacity: 0;
+        transform: translateY(60px) scale(0.97);
+        transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform, opacity;
+    }
+
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Staggered delays */
+    .stagger-1 { transition-delay: 80ms; }
+    .stagger-2 { transition-delay: 160ms; }
+    .stagger-3 { transition-delay: 240ms; }
+    .stagger-4 { transition-delay: 320ms; }
+    .stagger-5 { transition-delay: 400ms; }
+
+    /* Hover Interactions */
+    .hover-lift {
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
+    }
+
+    .hover-scale-img img, .hover-scale-img .aspect-video {
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hover-scale-img:hover img, .hover-scale-img:hover .aspect-video {
+        transform: scale(1.04);
+    }
+
+    /* Parallax effect container */
+    .parallax-section {
+        will-change: transform;
+    }
+</style></head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-white">
+<!-- TopNavBar Component -->
+<header class="bg-transparent backdrop-blur-md docked full-width z-50 font-manrope antialiased tracking-tight">
+<div class="max-w-[1280px] mx-auto flex justify-between items-center px-8 h-20">
+<div class="text-xl font-black text-white tracking-tighter uppercase">🌍<span class="" style="font-size: 18px; letter-spacing: normal;">Global Income Source System</span></div>
+<nav class="hidden md:flex gap-8">
+<!-- Assuming '核心系統' is the active intent for a landing page introducing the system -->
+<a class="text-orange-600 font-bold border-b-2 border-orange-600 pb-1 hover:text-orange-500 transition-all duration-300 scale-95 active:scale-90 transition-transform" href="#"><br></a>
+<a class="text-neutral-400 hover:text-white transition-colors hover:text-orange-500 transition-all duration-300 scale-95 active:scale-90 transition-transform" href="#"><br></a>
+<a class="text-neutral-400 hover:text-white transition-colors hover:text-orange-500 transition-all duration-300 scale-95 active:scale-90 transition-transform" href="#"><br></a>
+<a class="text-neutral-400 hover:text-white transition-colors hover:text-orange-500 transition-all duration-300 scale-95 active:scale-90 transition-transform" href="#"><br></a>
+</nav>
+<a href="https://payhip.com/b/rLVHO" target="_blank">
+<button class="btn-primary font-label-caps text-label-caps px-6 py-3 hidden md:block">
+                立即開啟</button>
+</a>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="py-section-gap px-margin-page flex flex-col items-center text-center max-w-container-max mx-auto relative reveal visible">
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[400px] bg-primary-container/20 blur-[120px] rounded-full z-0 pointer-events-none"></div>
+<div class="z-10 flex flex-col items-center">
+<span class="font-label-caps text-label-caps text-primary-container mb-6 tracking-widest uppercase"><br></span>
+<h1 class="font-display text-display text-on-surface mb-8 max-w-[1000px] leading-tight reveal visible">我放棄了在中國的一切<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-300"><font color="#e5e2e1">在台灣從0建立</font></span><div><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-300">全球收入來源系統</span></div></h1>
+<p class="font-body-lg text-body-lg text-secondary mb-12 max-w-[700px] reveal visible"><span class="" style="color: rgb(200, 198, 197); font-family: &quot;Noto Sans TC&quot;, Inter, sans-serif; font-size: 18px; background-color: rgb(10, 10, 10);">&nbsp;現在我將教你建立同樣的系統，將你的專業轉化為穩定的外國客戶來源 — 透過一套完整的系統，包含專業培訓、AI工具，以及經過實證的客戶開發框架</span></p>
+<a href="https://payhip.com/b/rLVHO" target="_blank">
+<button class="btn-primary font-headline-h2 text-[24px] px-12 py-5 rounded-lg font-bold shadow-[0_0_40px_rgba(234,88,12,0.3)]">
+    立即開啟全球收入系統
+</button>
+</a>
+</div>
+</section>
+<!-- Core VSL Section -->
+<section class="pb-section-gap px-margin-page max-w-container-max mx-auto reveal visible">
+<div class="glass-panel rounded-xl p-2 md:p-4 aspect-video relative overflow-hidden group cursor-pointer shadow-2xl reveal hover-lift hover-scale-img visible">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10 flex items-center justify-center">
+<div class="w-24 h-24 rounded-full bg-primary-container/90 flex items-center justify-center backdrop-blur-sm shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-5xl ml-2">play_arrow</span>
+</div>
+</div>
+<img alt="VSL Thumbnail" class="w-full h-full object-cover rounded-lg" data-alt="A cinematic wide shot of a highly professional, dark-themed digital workspace. Multiple high-resolution monitors display complex data analytics, sales funnels, and video editing software in a dark mode UI. The room is softly lit by ambient warm orange and cool blue LED bias lighting. A sleek, modern microphone sits on the desk. The overall mood is serious, high-tech, and indicative of a successful, global digital entrepreneur's command center." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu75NCgnbtQnFEWo60WSiVsyhLRYvG30wlzVOV0c1kxfrk-TgXtlTp1UUQjJtBvddLxVm93ZJBgLp0exMFduEtpQgJNoMh4f9y4RratXEVQivcmZh-Fgahcg5dSdxFeRMQ5eWuCcTTJwxKVTfRYX3KT8lNXuYTJqhEbKY7FJ0EqkKrLHnNTThXuksIzWtOxPRng7I4VEENuH_-goWTv6SIsniIHmbmRnlQvuzEYB24h9jtiu29W8R0kwDo9iZveySAPbPAQhO-d-8">
+</div>
+</section>
+<!-- Truth Shift Section -->
+<section class="py-section-gap bg-surface-container-low px-margin-page reveal parallax-section visible">
+<div class="max-w-[900px] mx-auto text-center">
+<h2 class="font-headline-h1 text-headline-h1 text-on-surface mb-8 reveal visible">
+                    海外收入的關鍵，從來不是你在哪裡、會不會英文或有沒有國外人脈
+                </h2>
+<div class="w-24 h-1 bg-primary-container mx-auto mb-12"></div>
+<p class="font-body-lg text-body-lg text-secondary mb-12 reveal visible">
+                    語言障礙、缺乏海外人脈、不知道如何建立信任... 這些是多數人放棄的原因。但真相是，<strong class="text-white">問題不在於你的能力，而在於你缺少一套系統。</strong> 一套能自動過濾、建立權威、並標準化成交的系統。
+                </p><div><p class="reveal visible" data-end="185" data-start="95">過去，我看到太多人卡在「不敢開口」、「不會英文銷售」、「沒有國外資源」，所以他們只能把機會停留在本地市場，收入也被地理限制住。但事實是，現在的全球市場早就被工具、內容與系統打開了。</p>
+<p class="reveal visible" data-end="260" data-start="187">這幾年，我把自己在海外客戶成交、內容轉化與自動化獲客中累積的經驗，整理成一套可重複運作的系統，讓一個人即使從台灣出發，也能建立穩定的外國客戶來源。</p>
+<p class="reveal visible" data-end="320" data-start="262">這個系統不是靠運氣，也不是靠人脈，而是靠結構化的獲客路徑、轉化話術模板、以及AI與自動化工具去放大每一次觸達的機會。</p>
+<p class="reveal visible" data-end="374" data-start="322">它的目的很簡單：讓你不再依賴「會不會英文」或「有沒有國外朋友」，而是依賴一套可以穩定產生海外收入的機制。</p>
+<p class="reveal visible" data-end="397" data-is-last-node="" data-is-only-node="" data-start="376">以下，就是這套全球收入來源系統的核心結構。</p></div><p class="reveal visible"></p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-gap text-left mt-16">
+<div class="glass-panel p-8 rounded-lg reveal hover-lift stagger-1 visible">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-6 block">public</span>
+<h3 class="font-headline-h2 text-[24px] text-white mb-4">市場定位與 Offer 設計</h3>
+<p class="text-secondary font-body-md text-body-md reveal visible">先搞清楚市場要什麼，而不是你會什麼。<br data-end="79" data-start="76">
+透過市場研究去理解外國客戶真正願意付費的問題，並把你原本的技能、經驗與服務，重新包裝成「他們看得懂、也願意付錢的解決方案」。<br data-end="144" data-start="141">
+重點不是多厲害，而是能不能變成一個<strong data-end="181" data-start="161">外國市場會主動想買的 Offer</strong>。</p>
+</div>
+<div class="glass-panel p-8 rounded-lg reveal hover-lift stagger-2 visible">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-6 block">verified</span>
+<h3 class="font-headline-h2 text-[24px] text-white mb-4">訊息設計與信任篩選系統</h3>
+<p class="text-secondary font-body-md text-body-md reveal visible">透過內容與訊息，精準「叫出對的人」，同時自然篩掉不適合的客戶。<br data-end="244" data-start="241">
+你不是在做曝光，而是在建立權威感與信任感，讓對的人開始主動靠近你。<br data-end="280" data-start="277">
+同時透過內容結構，過濾掉沒有預算、沒有準備好、或不適合的受眾，讓你只專注在真正有機會成交的人身上。</p>
+</div>
+<div class="glass-panel p-8 rounded-lg reveal hover-lift stagger-3 visible">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-6 block">handshake</span>
+<h3 class="font-headline-h2 text-[24px] text-white mb-4">成交與轉化系統</h3>
+<p class="text-secondary font-body-md text-body-md reveal visible">建立一套標準化的高客單價銷售流程，讓成交不再依賴運氣或臨場發揮。<br data-end="388" data-start="385">
+從第一次接觸、信任累積，到最後決策，每一步都有清楚的引導機制。<br data-end="422" data-start="419">
+最終讓成交變成一個<strong data-end="461" data-start="431">可重複、可預測、可規模化的系統，而不是偶然發生的結果</strong>。</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Founder Story Section -->
+<section class="py-section-gap px-margin-page max-w-container-max mx-auto reveal visible">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="glass-panel p-2 rounded-xl relative reveal hover-lift hover-scale-img visible">
+<div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-primary-container z-0"></div>
+<div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-primary-container z-0"></div>
+<img alt="Founder Portrait" class="w-full h-[600px] object-cover rounded-lg relative z-10" data-alt="A striking, high-contrast portrait of an Asian male entrepreneur in his 30s. He is dressed in a sharp, minimalist dark suit, standing against a deep, textured charcoal background. Dramatic studio lighting highlights his focused, confident expression, creating deep shadows that convey authority and determination. Subtle orange accent lights rim his silhouette, perfectly matching the premium, high-stakes dark mode brand aesthetic." src="https://i.postimg.cc/xdryKmBQ/wei-ming-ming-she-ji-(2).png">
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-primary-container mb-4 block"><br></span>
+<h2 class="font-headline-h1 text-headline-h1 text-on-surface mb-8 reveal visible"><br></h2>
+<p class="font-body-lg text-body-lg text-secondary mb-6 reveal visible"></p><div class="">新冠疫情爆發的那一年，我做了一個改變一切的決定——我放下了在北京，上海，蘇州生活的18年，頭也不回地離開了。</div><div class="">我是一個在中國生活了將近20年的台灣人。但我慢慢意識到，那個世界是有代價的：無止盡的關係經營、檯面下的交易、還有那個建立在關係之上的系統所帶來的重量。我不想再過那樣的生活了。</div><div class="">於是我走了。沒有海外人脈。沒有退路。沒有B計畫。</div><div><div class="">有很多時刻，我開始懷疑自己。突然要從零開始——在一個從未踏足的市場裡找客戶，在一個自己還在摸索的領域裡建立事業。</div><div class="">但我知道我想要的是什麼。我要建立一個完全屬於自己的事業——有外國客戶、有自由的網路環境、有更高的收入空間、有真正屬於自己的籌碼，還有一個相對公平的競爭環境。對一個幾乎沒有出過國的台灣人來說，這不是一件小事。</div></div><p class="reveal visible"></p>
+<p class="font-body-md text-body-md text-secondary mb-8 reveal visible"></p><div class="">所以我非常的努力。我買了課程，學行銷、學漏斗、學如何打造offer、學如何寫出有力的訊息。我加入了各種社群，每天和有同樣目標的創業者交流、互相學習。但我很快發現，光懂方法還不夠——我不會賣。於是我投資了一位銷售教練。然後又換了一位。</div><div class="">一點一點地，我開始進步。做了幾百次角色扮演，打了幾百通銷售電話，直到那份恐懼變成了肌肉記憶。最終，我成交了一筆一萬美金的合約。那位客戶還邀請我飛去普吉島，親自幫他建立整套漏斗系統。我們到今天仍然保持著合作關係。</div><div class="">這一路走來，我發現了一件事：開發外國客戶，從來都不是靠你認識誰、你的英文有多完美，或者你有沒有出過國。而是靠對的系統、對的定位與訊息、學會用自己的故事創造籌碼，還有那份願意在不舒適中持續撐下去的心態。</div><div class="">所以現在，我幫助台灣創業者建立全球收入來源——不需要人脈，不需要完美的英文，也不需要離開台灣。讓他們能夠突破只待在台灣市場的收入天花板，用自己的方式建立事業，真正掌握自己的收入、時間與自由——而且不需要違背自己的原則。</div><p class="reveal visible"></p>
+<div class="glass-panel p-6 border-l-4 border-l-primary-container reveal hover-lift visible">
+<p class="font-body-md text-body-md text-white italic reveal visible">"真正的自由，是擁有將專業變現為全球收入的能力。"</p>
+
+</div>
+</div>
+</div>
+</section><!-- Transformation Section -->
+<section class="py-section-gap px-margin-page bg-surface reveal parallax-section visible">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-primary-container mb-4 block">TRANSFORMATION</span>
+<h2 class="font-display text-[40px] md:text-headline-h1 text-on-surface mb-6 reveal visible">「卡在本地市場與不確定中」 → 「建立穩定的全球收入來源」</h2>
+<p class="font-body-lg text-secondary max-w-[700px] mx-auto reveal visible">這套系統，會為你帶來的實際結果：</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Block 1 -->
+<div class="glass-panel p-8 rounded-xl border-t-2 border-t-primary-container/50 hover:border-t-primary-container transition-all reveal hover-lift stagger-1 visible">
+<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary-container">hub</span>
+</div>
+<h3 class="text-white font-bold text-xl mb-4">①建立可預測的外國客戶來源</h3>
+<p class="text-secondary text-sm leading-relaxed reveal visible">
+                    不再靠運氣或零散開發，而是透過系統持續吸引、篩選並累積真正有潛力的客戶。從單筆成交，轉變為可延續的合作、回購與長期客戶，讓你的收入開始有「堆疊感」，而不是每次都重新開始。
+                </p>
+</div>
+<!-- Block 2 -->
+<div class="glass-panel p-8 rounded-xl border-t-2 border-t-primary-container/50 hover:border-t-primary-container transition-all reveal hover-lift stagger-2 visible">
+<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary-container">payments</span>
+</div>
+<h3 class="text-white font-bold text-xl mb-4">② 從對話到成交的穩定能力</h3>
+<p class="text-secondary text-sm leading-relaxed reveal visible">
+                    學習如何和國外客戶成交。透過在台灣只用一臺筆電就能成交，能判斷買意、建立信任，並自然推進到成交。
+                </p>
+</div>
+<!-- Block 3 -->
+<div class="glass-panel p-8 rounded-xl border-t-2 border-t-primary-container/50 hover:border-t-primary-container transition-all reveal hover-lift stagger-3 visible">
+<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary-container">verified_user</span>
+</div>
+<h3 class="text-white font-bold text-xl mb-4">③ 你的專業開始被當成高價值看待（而不是被比價）</h3>
+<p class="text-secondary text-sm leading-relaxed reveal visible">
+                    你不再需要解釋「為什麼這個值錢」，而是讓對方自然理解價值，願意為結果付費，而不是壓價或猶豫。
+                </p>
+</div>
+<!-- Block 4 -->
+<div class="glass-panel p-8 rounded-xl border-t-2 border-t-primary-container/50 hover:border-t-primary-container transition-all reveal hover-lift stagger-4 visible">
+<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary-container">terminal</span>
+</div>
+<h3 class="text-white font-bold text-xl mb-4">④ 擺脫本地市場的限制，打開國際連結，讓你的生活與視野開始改變</h3>
+<p class="text-secondary text-sm leading-relaxed reveal visible">
+                    你不再被單一市場綁住，也不再被當地價格框架限制。不再只和同一圈人做生意，而是開始與不同文化、不同背景的人建立合作關係。這不只是收入的改變，而是讓你的人生經驗、思維與格局被真正拉開。</p>
+</div>
+</div>
+<div class="mt-16 flex justify-center">
+<div class="h-[1px] w-full max-w-[200px] bg-gradient-to-r from-transparent via-primary-container to-transparent"></div>
+</div>
+</div>
+</section><section class="py-section-gap px-margin-page bg-surface-container-low">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-primary-container mb-4 block">CORE MODULES</span>
+<h2 class="font-headline-h1 text-headline-h1 text-on-surface reveal visible">如何透過全球收入來源系統<div class="">穩定轉化外國客戶並持續產生收入</div></h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Block 01 -->
+<div class="glass-panel p-10 rounded-2xl relative reveal hover-lift visible">
+<div class="absolute top-6 right-8 font-display text-7xl text-primary-container/10 select-none">01</div>
+<h3 class="font-headline-h2 text-white mb-8 pr-16">① 系統建立（方法層）</h3>
+<div class="space-y-8">
+<div>
+<h4 class="text-primary-container font-bold mb-2">1. 設計讓人無法抗拒的offer</h4>
+<p class="text-secondary text-sm reveal visible">深入剖析 YouTube 推薦系統的運作方式，了解如何從零開始建立頻道權威，並掌握核心指標對流量增長的關鍵影響。</p>
+</div>
+<div>
+<h4 class="text-primary-container font-bold mb-2">2. VSL銷售漏斗</h4>
+<p class="text-secondary text-sm reveal visible">透過數據化方式定義你的理想客戶，確保每一支影片都能精準打中目標族群的痛點，建立高黏著度的垂直領域影響力。</p>
+</div>
+<div>
+<h4 class="text-primary-container font-bold mb-2">3. 内容策略</h4>
+<p class="text-secondary text-sm reveal visible">標準化的 VSL 劇本框架，從開場 Hook 到價值傳遞，引導觀眾產生共鳴並建立信任感，為後續轉化打下穩固基礎。</p>
+</div>
+<div>
+<h4 class="text-primary-container font-bold mb-2">4. 招募與管理</h4>
+<p class="text-secondary text-sm reveal visible">建立可持續的內容生產流程，克服創作倦怠。透過標準化 SOP 提高發片效率，維持頻道的長期活躍度與增長動能。</p>
+</div>
+</div>
+</div>
+<!-- Block 02 -->
+<div class="glass-panel p-10 rounded-2xl relative reveal hover-lift visible">
+<div class="absolute top-6 right-8 font-display text-7xl text-primary-container/10 select-none">02</div>
+<h3 class="font-headline-h2 text-white mb-8 pr-16">② 國外客戶成交流程+實戰紀錄（$6211+$2000/月完整記錄）</h3>
+<div class="space-y-8">
+<div>
+<h4 class="text-primary-container font-bold mb-2">1. 真實外國客戶成交完整記錄</h4>
+<p class="text-secondary text-sm reveal visible">這是一份完整還原的實戰過程紀錄。你會看到一筆 $6,211 美元合作，如何從第一次完全陌生的對話開始，經過多次會議、訊息往返與停滯，最後自然走到付款，並延伸成 $2,000 美元／月的長期合作關係。</p>
+</div>
+<div>
+<h4 class="text-primary-container font-bold mb-2">2. 真正卡住成交的5個關鍵層</h4>
+<p class="text-secondary text-sm reveal visible"></p><p class="reveal visible" data-end="419" data-start="335">不是話術，也不是英文能力，而是信任如何建立：權威感、專業度、信任建立、痛點挖掘、以及讓對方願意行動的心理合理化。這些決定了外國客戶「為什麼願意付錢」，而不是你說了什麼。</p><p class="reveal visible"></p>
+</div>
+<div>
+<h4 class="text-primary-container font-bold mb-2">3. 如果你卡在會聊，但不會成交外國客戶</h4>
+<p class="text-secondary text-sm reveal visible">你已經可以和外國客戶對話，也有能力提供服務，但每次都停在同一個地方----不知道怎麼從聊天自然走到付款，甚至分不清對方到底是「還在考慮」還是「其實不會買」。這份內容就是拆開那個中間最關鍵、但從來沒人講清楚的過程。</p>
+</div>
+<div>
+<h4 class="text-primary-container font-bold mb-2">4. 不是理論，是已經被市場驗證的真實成交軌跡</h4>
+<p class="text-secondary text-sm reveal visible">這不是整理出來的方法論，而是我從一位年營收數百萬美元級別的銷售教練身上學來的實戰框架，並在真實市場中反覆驗證。</p>
+</div>
+</div>
+</div>
+<!-- Block 03 -->
+<div class="glass-panel p-10 rounded-2xl relative reveal hover-lift visible">
+<div class="absolute top-6 right-8 font-display text-7xl text-primary-container/10 select-none">03</div>
+<h3 class="font-headline-h2 text-white mb-8 pr-16">③ 交付系統+實戰記錄（普吉島）</h3>
+<div class="space-y-8">
+<div>
+<h4 class="text-primary-container font-bold mb-2">1. 真實高價客戶實戰案例（7 天普吉島交付紀錄）</h4>
+<p class="text-secondary text-sm reveal visible">親自飛往普吉島，與一位已付費 $6,211 美元 + $2,000/月的長期客戶合作，從 0 開始搭建行銷系統、銷售漏斗與數位產品，全程真實紀錄完整執行過程與決策邏輯。</p>
+</div>
+<div>
+<h4 class="text-primary-container font-bold mb-2">2.針對卡關者的核心問題設計（尤其是心理與認知限制）</h4>
+<p class="text-secondary text-sm reveal visible">如果你不知道自己能賣什麼、懷疑「真的會有人付錢嗎」、或不相信知識/服務可以變現，這套系統會直接拆解這些限制性信念，並用真實市場結構告訴你成交是如何發生的。</p>
+</div>
+<div>
+<h4 class="text-primary-container font-bold mb-2">3. 外國客戶成交系統：從曝光到付費的完整商業結構</h4>
+<p class="text-secondary text-sm reveal visible"></p><li class="" data-end="241" data-start="119">拆解從 Top of Funnel 到 Bottom Funnel 的完整流程，包括內容引流、信任建立、Offer 設計、VSL 銷售頁，以及如何把陌生人一步步轉化為高付費客戶。
+</li>
+<li class="" data-end="355" data-start="243">
+<strong data-end="273" data-is-only-node="" data-start="245">針對卡關者的核心問題設計（尤其是心理與認知限制）</strong><br data-end="276" data-start="273">
+如果你不知道自己能賣什麼、懷疑「真的會有人付錢嗎」、或不相信知識/服務可以變現，這套系統會直接拆解這些限制性信念，並用真實市場結構告訴你成交是如何發生的。</li><p class="reveal visible"></p>
+</div>
+<div>
+<h4 class="text-primary-container font-bold mb-2">4. 受眾心理與行深度洞察</h4>
+<p class="text-secondary text-sm reveal visible">運用心理學模型分析觀眾的觀看與互動行為。從數據中讀懂受眾的隱性偏好，讓每一支影片都能與觀眾產生深層連結。</p>
+</div>
+</div>
+</div>
+<!-- Block 04 -->
+<div class="glass-panel p-10 rounded-2xl relative reveal hover-lift visible">
+<div class="absolute top-6 right-8 font-display text-7xl text-primary-container/10 select-none">04</div>
+<h3 class="font-headline-h2 text-white mb-8 pr-16">④ App + 社群 + 模板 + 最新AI應用課程</h3>
+<div class="space-y-8">
+<div>
+<h4 class="text-primary-container font-bold mb-2">1. 每週Q&amp;A實戰社群</h4>
+<p class="text-secondary text-sm reveal visible">每週一次即時問答與拆解，幫你解決在開發與成交外國客戶過程中遇到的真實問題，不只是學，而是持續優化你的成交能力。</p>
+</div>
+<div>
+<h4 class="text-primary-container font-bold mb-2">2. 外國客戶開發App工具</h4>
+<p class="text-secondary text-sm reveal visible">專為實戰設計的工具系統，幫助你更快找到潛在外國客戶、整理名單並提升跟進效率，讓開發流程變得更自動化。</p>
+</div>
+<div>
+<h4 class="text-primary-container font-bold mb-2">3. 成交腳本與模板系統</h4>
+<p class="text-secondary text-sm reveal visible">提供可直接複製使用的對話腳本與流程框架，讓你不用重新思考話術，也能自然進入成交狀態。</p>
+</div>
+<div>
+<h4 class="text-primary-container font-bold mb-2">4. AI自動化與系統課程</h4>
+<p class="text-secondary text-sm reveal visible">包含 n8n、自動化流程設計與最新AI工具應用教學，幫你把獲客、溝通與轉換流程變成可執行的自動系統。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Proof Stack (Video Wall) -->
+<section class="py-section-gap px-margin-page max-w-container-max mx-auto reveal visible">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-primary-container mb-4 block">The Proof</span>
+<h2 class="font-headline-h1 text-headline-h1 text-on-surface reveal visible">客戶怎麼評價我</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+<div class="glass-panel rounded-xl overflow-hidden group cursor-pointer reveal hover-lift visible">
+<div class="aspect-video relative bg-surface-container-high flex items-center justify-center border-b border-neutral-800 hover-scale-img">
+<span class="material-symbols-outlined text-white/50 text-6xl group-hover:scale-110 transition-transform">play_circle</span>
+</div>
+<div class="p-6">
+<h4 class="font-headline-h2 text-[20px] text-white mb-2">真實成交與交付全過程</h4>
+<p class="text-secondary font-body-md text-sm reveal visible">完整紀錄 $6,211 +$2000/月客戶成交實況</p>
+</div>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden group cursor-pointer reveal hover-lift visible">
+<div class="aspect-video relative border-b border-neutral-800">
+<iframe 
+    class="w-full h-full absolute inset-0"
+    src="https://www.youtube.com/embed/zHKraALNBPk"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+</iframe>
+</div>
+<div class="p-6">
+<h4 class="font-headline-h2 text-[20px] text-white mb-2">客戶證言</h4>
+<p class="text-secondary font-body-md text-sm reveal visible">來自真實客戶的信任背書</p>
+</div>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden group cursor-pointer reveal hover-lift visible">
+<div class="aspect-video relative border-b border-neutral-800">
+<iframe 
+    class="w-full h-full absolute inset-0"
+    src="https://www.youtube.com/embed/FYkAO7Uvozw"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+</iframe>
+</div>
+<div class="p-6">
+<h4 class="font-headline-h2 text-[20px] text-white mb-2">國外學員教學紀錄1</h4>
+<p class="text-secondary font-body-md text-sm reveal visible">來自國外市場的直接驗證與反饋</p>
+</div>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden group cursor-pointer reveal hover-lift visible">
+<div class="aspect-video relative border-b border-neutral-800">
+<iframe 
+    class="w-full h-full absolute inset-0"
+    src="https://www.youtube.com/embed/GU7dFRp-7F8"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+</iframe>
+</div>
+<div class="p-6">
+<h4 class="font-headline-h2 text-[20px] text-white mb-2"></h4><h4 class="font-headline-h2 text-[20px] text-white mb-2" style="--tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; --tw-text-opacity: 1; color: rgb(255, 255, 255); outline: none !important;">國外學員教學紀錄2</h4>
+<p class="text-secondary font-body-md text-sm reveal visible">來自國外市場的直接驗證與反饋</p>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden group cursor-pointer max-w-[800px] mx-auto reveal hover-lift visible">
+<div class="aspect-video relative border-b border-neutral-800">
+<iframe 
+    class="w-full h-full absolute inset-0"
+    src="https://www.youtube.com/embed/28GpwSllqC4"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+</iframe>
+</div>
+<div class="p-6 text-center">
+<h4 class="font-headline-h2 text-[24px] text-white mb-2">全球收入來源系統深度拆解</h4>
+<p class="text-secondary font-body-md reveal visible">底層邏輯與系統架構公開</p>
+</div>
+</div>
+</div>
+</section>
+<!-- What You Get Section -->
+<section class="py-section-gap bg-surface-container-low px-margin-page reveal parallax-section visible">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-primary-container mb-4 block">The Arsenal</span>
+<h2 class="font-headline-h1 text-headline-h1 text-on-surface reveal visible">你將獲得的核心武器庫</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-gap">
+<!-- Card 1 -->
+<div class="glass-panel p-10 rounded-xl relative overflow-hidden group reveal hover-lift stagger-1 visible">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/10 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-primary-container/20 transition-colors"></div>
+<h3 class="font-headline-h2 text-[28px] text-white mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">architecture</span>
+                            系統建立（90+影片）</h3>
+<ul class="space-y-4 font-body-md text-body-md text-secondary">
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span> <strong>Offer 設計：</strong> 打造國外客戶願意買單的方案。</li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span> <strong>VSL 漏斗：</strong> 24/7 自動化篩選對的客戶，建立信任與權威，並持續預熱潛在客戶的銷售架構。</li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span> <strong>可轉化的內容策略：</strong> 吸引高階受眾的精準內容佈局。</li>
+<li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span> <strong>可持續的內容與營運流程：</strong> 高效放大的流量獲取機制。</li>
+</ul>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel p-10 rounded-xl relative overflow-hidden group reveal hover-lift stagger-2 visible">
+<h3 class="font-headline-h2 text-[28px] text-white mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">query_stats</span>
+                            國外客戶成交技能</h3>
+<p class="font-body-md text-body-md text-secondary mb-4 reveal visible">透過完整公開的真實成交紀錄與實戰對話，你不只是「看一個案例」，而是逐步內化一套可複製的成交能力。<br data-end="67" data-start="64">
+從陌生開場、關係推進，到最終達成 $6,211 美元成交並延伸為 $2,000/月長期合作，你會清楚理解每一個關鍵節點如何運作，學會在對話中建立信任、判斷買意，並自然引導對方做出決策。</p>
+<div class="bg-black/50 p-4 rounded-lg border border-neutral-800 mt-6">
+<p class="text-white font-bold mb-2 reveal visible">掌握成交 5 大層級 ：</p>
+<div class="flex flex-wrap gap-2 text-sm text-secondary">
+<span class="px-3 py-1 bg-surface-container rounded border border-neutral-800">1. 認知對齊層</span>
+<span class="px-3 py-1 bg-surface-container rounded border border-neutral-800">2.決策承諾層</span>
+<span class="px-3 py-1 bg-surface-container rounded border border-neutral-800">3. 降阻設計層</span>
+<span class="px-3 py-1 bg-surface-container rounded border border-neutral-800">4. 停滯考驗層</span>
+<span class="px-3 py-1 bg-surface-container rounded border border-neutral-800">5. 水到渠成層</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel p-10 rounded-xl relative overflow-hidden group reveal hover-lift hover-scale-img stagger-3 visible">
+<h3 class="font-headline-h2 text-[28px] text-white mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">travel_explore</span>
+                            交付與價值兌現能力（服務交付技能）</h3>
+<p class="font-body-md text-body-md text-secondary mb-6 reveal visible"></p><p class="reveal visible" data-end="132" data-start="0">透過 7 天普吉島的真實交付紀錄，你不只是看到「做了什麼」，而是學會一套能把承諾變成結果的交付能力。<br data-end="79" data-start="76">
+如果你不知道自己能賣什麼，這會幫你釐清價值；如果你有懷疑與限制性信念，這會用真實市場結果重新建立你的認知。</p>
+<p class="reveal visible" data-end="258" data-is-last-node="" data-is-only-node="" data-start="134">你會理解如何把 Offer 中的承諾，轉化為實際可交付的成果，讓客戶真正感受到價值、產生滿意與信任。<br data-end="187" data-start="184">
+同時建立一個正向循環：交付 → 回饋 → 優化產品 → 提升結果 → 強化口碑，讓你的服務不只成交一次，而是持續讓生意變得更穩定、更可規模化。</p><p class="reveal visible"></p>
+<div class="h-32 w-full rounded-lg overflow-hidden border border-neutral-800">
+<img alt="Phuket Case Study" class="w-full h-full object-cover" data-alt="A panoramic, cinematic view of a luxury villa workspace in Phuket at dusk. A sleek laptop sits on a minimal wooden table, displaying a complex mind map of a digital sales funnel. In the background, an infinity pool overlooks the ocean, bathed in deep twilight blues and subtle warm orange lighting from the villa. The scene conveys ultimate location independence and high-end digital nomadic success, styled with a sophisticated, moody dark aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgHCJ2jZwAwmsvIQRfIm4_yiPRmrn4Ju-9Ev-ttf9rtrGatoXZVJMTd-o27Lp46hxhbJ0tctKb9mJ-0Idc0Ivwqug85H_0UGeC5hN4qQH_RdYCP5YokDIxjOBzdBFlE2uehEKzax1bSHroN1_VgYNjsB24-1md6wTwMoZ5xxVjqK-mBzgygJxBMXtuVSAO4h5mVGfQFLQ_Q95MvQw_bKu0b_l4YxaB-OKNOn5wEbSybycXdcJxuxlAwKFBgbHBd-CY_g4_bqKTHyo">
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-panel p-10 rounded-xl relative overflow-hidden group reveal hover-lift stagger-4 visible">
+<h3 class="font-headline-h2 text-[28px] text-white mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">construction</span>全球客戶開發系統與自動化武器庫（AI+系統工具能力）</h3>
+<ul class="space-y-4 font-body-md text-body-md text-secondary">
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-neutral-500">memory</span> 專屬 AI App +自動化開發系統（如 n8n）</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-neutral-500">description</span> 高轉換對話腳本模板</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-neutral-500">forum</span> 高階實戰派社群支援</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="py-section-gap bg-surface px-margin-page border-t border-neutral-800 reveal parallax-section visible">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-h1 text-headline-h1 text-on-surface reveal visible">這套系統適合誰 / 不適合誰</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Suitable -->
+<div class="glass-panel p-10 rounded-2xl border-t-4 border-t-primary-container reveal hover-lift visible">
+<h3 class="font-headline-h2 text-white mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container font-bold">check_circle</span>
+                    適合這樣的你
+                </h3>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container mt-1">done</span>
+<span class="text-secondary font-body-lg">想開始接觸國外客戶，但不知道從哪開始的人</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container mt-1">done</span>
+<span class="text-secondary font-body-lg">已經在做服務，但卡在低價或接不到高價客戶的人</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container mt-1">done</span>
+<span class="text-secondary font-body-lg">願意學習實戰成交，而不是只看理論的人</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container mt-1">done</span>
+<span class="text-secondary font-body-lg">願意執行、測試，而不是只想快速賺錢的人</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container mt-1">done</span>
+<span class="text-secondary font-body-lg">渴望建立一套可重複、系統化收入來源的人</span>
+</li>
+</ul>
+</div>
+<!-- Not Suitable -->
+<div class="glass-panel p-10 rounded-2xl border-t-4 border-t-neutral-700 reveal hover-lift visible">
+<h3 class="font-headline-h2 text-white mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container font-bold">cancel</span>
+                    不適合這樣的你
+                </h3>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container mt-1">close</span>
+<span class="text-secondary font-body-lg">只想找快速致富、輕鬆賺錢方法的人</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container mt-1">close</span>
+<span class="text-secondary font-body-lg">不願意與客戶溝通或進行實際成交的人</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container mt-1">close</span>
+<span class="text-secondary font-body-lg">只想卡在本地市場，不願意和國外客戶做生意的</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container mt-1">close</span>
+<span class="text-secondary font-body-lg">只想看內容、不願意實際執行的人</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container mt-1">close</span>
+<span class="text-secondary font-body-lg">完全沒有英文基礎的人</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section><section class="py-section-gap bg-surface-container-lowest px-margin-page border-t border-neutral-800 reveal visible">
+<div class="max-w-4xl mx-auto text-center">
+<span class="font-label-caps text-label-caps text-primary-container mb-6 block tracking-[0.2em]">LIMITED TIME OFFER</span>
+<h2 class="font-display text-4xl md:text-6xl text-white mb-6 font-extrabold reveal visible">
+            現在就是你建立全球收入系統的起點
+        </h2>
+<p class="font-body-lg text-secondary mb-12 max-w-2xl mx-auto reveal visible">
+            不再只是學習技巧，而是直接擁有一套可以變現的完整系統
+        </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
+<!-- Left Column: Primary Offer -->
+<div class="glass-panel rounded-2xl p-8 md:p-10 border-primary-container/30 relative overflow-hidden flex flex-col reveal hover-lift visible">
+<div class="absolute top-0 right-0 w-48 h-48 bg-primary-container/5 blur-[80px] rounded-full -mr-24 -mt-24"></div>
+<div class="mb-8">
+<h3 class="text-white font-headline-h2 text-2xl mb-4">完整系統課程</h3>
+<div class="flex flex-col mb-6">
+<span class="text-neutral-500 line-through text-lg font-body-md">$400 USD</span>
+<div class="flex items-baseline gap-2">
+<span class="text-primary-container text-5xl font-display font-extrabold">$197</span>
+<span class="text-primary-container text-xl font-bold">USD</span>
+</div>
+</div>
+</div>
+<ul class="space-y-4 text-left mb-10 flex-grow">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container font-bold text-xl">check_circle</span>
+<span class="text-secondary font-body-md">完整課程 + 系統建立（90+ 影片）</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container font-bold text-xl">check_circle</span>
+<span class="text-secondary font-body-md">國外客戶成交技能（高價成交能力）</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container font-bold text-xl">check_circle</span>
+<span class="text-secondary font-body-md">交付與價值兌現能力（服務交付系統）</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container font-bold text-xl">check_circle</span>
+<span class="text-secondary font-body-md">全球客戶開發系統與自動化武器庫（AI + 系統工具）</span>
+</li>
+</ul>
+<div class="mt-auto">
+<a href="https://payhip.com/b/rLVHO" target="_blank">
+<button class="btn-primary w-full font-headline-h2 text-xl py-5 rounded-lg font-bold shadow-[0_0_30px_rgba(234,88,12,0.3)] hover:scale-[1.02] active:scale-95 transition-all mb-4">
+    立即獲取完整系統
+</button>
+</a>
+<p class="text-neutral-500 text-sm reveal visible">一次付款，終身獲取</p>
+</div>
+</div>
+<!-- Right Column: Subscription -->
+<div class="glass-panel rounded-2xl p-8 md:p-10 border-neutral-800/50 relative overflow-hidden flex flex-col bg-surface-container-low/50 reveal hover-lift visible">
+<div class="mb-8">
+<div class="flex justify-between items-start">
+<h3 class="text-white font-headline-h2 text-2xl mb-4">軟體 &amp; AI 工具<span style="font-size: 1.5rem; font-weight: inherit;" class="">&amp;社群</span></h3>
+<span class="bg-neutral-800 text-neutral-400 text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wider">加入 Academy 後解鎖</span>
+</div>
+<div class="flex items-baseline gap-2 mb-6">
+<span class="text-white text-5xl font-display font-extrabold">$97</span>
+<span class="text-neutral-400 text-xl font-bold">/ 月</span>
+</div>
+</div>
+<ul class="space-y-4 text-left mb-10 flex-grow">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container/60 font-bold text-xl">check_circle</span>
+<span class="text-neutral-400 font-body-md">市場研究 APP（快速找出高價需求）</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container/60 font-bold text-xl">check_circle</span>
+<span class="text-neutral-400 font-body-md">1 對 1 對話 APP（模擬你與客戶溝通）</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container/60 font-bold text-xl">check_circle</span>
+<span class="text-neutral-400 font-body-md">一分鐘回復系統APP</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container/60 font-bold text-xl">check_circle</span>
+<span class="text-neutral-400 font-body-md">YouTube → 點擊 → 購買 追蹤系統APP</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container/60 font-bold text-xl">check_circle</span>
+<h4 class="text-primary-container font-bold mb-2" style="--tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; font-size: medium; --tw-text-opacity: 1; color: rgb(246, 96, 24); background-color: rgb(23, 23, 23); outline: none !important;">每周社群交流會議</h4>
+</li>
+</ul>
+<div class="mt-auto">
+<button class="w-full bg-neutral-800/50 text-neutral-500 font-headline-h2 text-xl py-5 rounded-lg font-bold flex items-center justify-center gap-2 cursor-not-allowed mb-4 border border-neutral-700/50" disabled="">
+<span class="material-symbols-outlined">lock</span>
+                加入 Academy 後解鎖
+            </button>
+<div class="text-neutral-500 text-xs flex flex-col gap-1">
+<span class="">包含 30 天免費軟體試用</span>
+<span class="">可隨時取消</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-section-gap bg-surface-container-low px-margin-page reveal parallax-section visible">
+<div class="max-w-[800px] mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-h1 text-headline-h1 text-on-surface reveal visible">常見問題</h2>
+</div>
+<div class="space-y-4">
+<details class="glass-panel rounded-lg group reveal hover-lift visible">
+<summary class="font-headline-h2 text-[20px] text-white p-6 cursor-pointer flex justify-between items-center list-none">
+                            英文不好可以嗎？
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform text-primary-container">keyboard_arrow_down</span>
+</summary>
+<div class="p-6 pt-0 text-secondary font-body-md text-body-md border-t border-neutral-800 mt-2"><p class="reveal" data-end="140" data-start="81">系統的重點在於流程與框架。<br data-end="97" data-start="94">
+我們會教你如何利用現代 AI 工具與標準化腳本，突破語言屏障，專注於傳遞你的核心價值。</p>
+<p class="reveal" data-end="210" data-start="142">當然，你還是需要具備基礎的英文理解能力（不需要流利），<br data-end="172" data-start="169">
+但透過工具與流程的輔助，你不需要依賴口說或臨場反應，也能順利完成溝通與成交。</p></div>
+</details>
+<details class="glass-panel rounded-lg group reveal hover-lift visible">
+<summary class="font-headline-h2 text-[20px] text-white p-6 cursor-pointer flex justify-between items-center list-none">
+                            沒有海外人脈怎麼開始？
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform text-primary-container">keyboard_arrow_down</span>
+</summary>
+<div class="p-6 pt-0 text-secondary font-body-md text-body-md border-t border-neutral-800 mt-2"><p class="reveal" data-end="141" data-start="87">這套系統正是為此而生。<br data-end="101" data-start="98">
+我們不依賴既有人脈，而是教你如何建立精準的漏斗，讓有需求的高價值客戶主動找到你。</p>
+<p class="reveal" data-end="194" data-start="143">我自己一開始也沒有任何海外背景——<br data-end="163" data-start="160">
+沒有出國留學、在國外沒有認識的人，甚至完全沒有國外市場的人脈。</p>
+<p class="reveal" data-end="230" data-start="196">就是從這樣的 0 開始，透過這套方式，逐步建立起第一批國外付費客戶。</p></div>
+</details>
+<details class="glass-panel rounded-lg group reveal hover-lift visible">
+<summary class="font-headline-h2 text-[20px] text-white p-6 cursor-pointer flex justify-between items-center list-none">
+                            不知道賣什麼？
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform text-primary-container">keyboard_arrow_down</span>
+</summary>
+<div class="p-6 pt-0 text-secondary font-body-md text-body-md border-t border-neutral-800 mt-2"><p class="reveal" data-end="165" data-start="111">系統的第一步就是「Offer 設計」。<br data-end="133" data-start="130">
+我們會引導你盤點現有技能與知識，包裝成市場急需的高單價解決方案。</p>
+<p class="reveal" data-end="236" data-start="167">同時，你可以直接觀看我的實戰交付紀錄 ——<br data-end="191" data-start="188">
+7 天飛往普吉島，完成 $6,211 美元 + $2,000 美元／月客戶的完整服務過程。</p>
+<p class="reveal" data-end="285" data-start="238">你不只是學「怎麼設計」，而是透過真實案例，看懂市場真正願意付費的是什麼，進而知道自己該賣什麼。</p></div>
+</details>
+<details class="glass-panel rounded-lg group reveal hover-lift visible">
+<summary class="font-headline-h2 text-[20px] text-white p-6 cursor-pointer flex justify-between items-center list-none">
+                            需要厲害的銷售技巧嗎？
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform text-primary-container">keyboard_arrow_down</span>
+</summary>
+<div class="p-6 pt-0 text-secondary font-body-md text-body-md border-t border-neutral-800 mt-2"><p class="reveal" data-end="175" data-start="146">不需要一開始就很厲害，但你會在這個系統裡「變得越來越強」。</p>
+<p class="reveal" data-end="236" data-start="177">我們提供完整的銷售訓練與實戰練習，你可以在社群內進行角色扮演（Roleplay）、實際演練對話，慢慢建立你的成交能力。</p>
+<p class="reveal" data-end="310" data-start="238">同時，整個系統會幫你在成交前就完成大部分的「信任建立」與「權威塑造」——<br data-end="277" data-start="274">
+透過內容、訊息流程與前期溝通，先幫客戶暖身，讓對話不再是從零開始。</p>
+<p class="reveal" data-end="350" data-start="312">所以當你真正進入成交對話時，不是硬推銷，而是更像在做一個有結構的確認與引導。</p>
+<p class="reveal" data-end="394" data-start="352">👉 簡單來說：<br data-end="363" data-start="360">
+你不需要是高手才開始，但這套系統會讓成交這件事，變得簡單很多。</p></div>
+</details>
+<details class="glass-panel rounded-lg group reveal hover-lift visible">
+<summary class="font-headline-h2 text-[20px] text-white p-6 cursor-pointer flex justify-between items-center list-none">
+                            需要龐大資金嗎？
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform text-primary-container">keyboard_arrow_down</span>
+</summary>
+<div class="p-6 pt-0 text-secondary font-body-md text-body-md border-t border-neutral-800 mt-2">
+                            這套系統的初期建置成本極低，主要投資在於你的時間與執行力。當漏斗跑通後，你可以再利用賺取的利潤進行廣告放大。
+                        </div>
+</details>
+<details class="glass-panel rounded-lg group reveal hover-lift visible" open="">
+<summary class="font-headline-h2 text-[20px] text-white p-6 cursor-pointer flex justify-between items-center list-none">
+                            和一般行銷課有何不同？
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform text-primary-container">keyboard_arrow_down</span>
+</summary>
+<div class="p-6 pt-0 text-secondary font-body-md text-body-md border-t border-neutral-800 mt-2">
+                            這不是理論課，而是實戰的 SOP。它經過真實高單價成交的驗證，並且直接提供我們正在使用的工具與腳本。
+                        </div>
+</details>
+<details class="glass-panel rounded-lg group reveal hover-lift visible" open="">
+<summary class="font-headline-h2 text-[20px] text-white p-6 cursor-pointer flex justify-between items-center list-none">
+                            誰不適合這套系統？
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform text-primary-container">keyboard_arrow_down</span>
+</summary>
+<div class="p-6 pt-0 text-secondary font-body-md text-body-md border-t border-neutral-800 mt-2">
+                            尋求快速致富、沒有核心專業技能、不願意投入時間建立系統的人，不適合這套方法。
+                        </div>
+</details>
+
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-section-gap px-margin-page text-center reveal visible">
+<h2 class="font-display text-[48px] md:text-[64px] font-extrabold text-white mb-8 reveal visible">
+                開始建立你的全球收入來源系統
+            </h2>
+<a href="https://payhip.com/b/rLVHO" target="_blank">
+<button class="btn-primary font-headline-h2 text-[24px] px-16 py-6 rounded-lg font-bold shadow-[0_0_50px_rgba(234,88,12,0.4)]">
+                立即開啟
+            </button>
+</a>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface-container-lowest font-manrope text-sm text-neutral-500 full-width py-16 flat">
+<div class="max-w-[1280px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-lg font-bold text-white uppercase opacity-80 hover:opacity-100 transition-opacity">🌍 Global Income Source System</div>
+<div class="flex gap-6">
+<a class="text-neutral-500 hover:text-orange-600 transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#"><br></a>
+<a class="text-neutral-500 hover:text-orange-600 transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#"><br></a>
+<a class="text-neutral-500 hover:text-orange-600 transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#"><br></a>
+<a class="text-neutral-500 hover:text-orange-600 transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#"><br></a>
+</div>
+<div class="opacity-80 hover:opacity-100 transition-opacity">© 2026 Global Income Source System. 版權所有。</div>
+</div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Reveal on Scroll Logic
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Subtle Parallax Logic
+        window.addEventListener('scroll', () => {
+    document.querySelectorAll('.parallax-section').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const centerOffset = rect.top + rect.height / 2 - window.innerHeight / 2;
+        const speed = 0.05;
+        el.style.transform = `translateY(${centerOffset * speed}px)`;
+    });
+}, { passive: true });
+    });
+</script>
+
+</body></html>
