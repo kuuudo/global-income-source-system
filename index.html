@@ -857,4 +857,24 @@
     });
 </script>
 
+<!-- 
+  VSTRK Tracking Snippet
+  Paste this once, just before </body> on your landing page.
+  It reads ?ref=TOKEN from the URL and appends client_reference_id
+  to every Stripe button on the page automatically.
+-->
+<script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get('ref');
+    if (!ref) return;
+
+    document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(function (el) {
+      const url = new URL(el.getAttribute('href'));
+      url.searchParams.set('client_reference_id', ref);
+      el.setAttribute('href', url.toString());
+    });
+  })();
+</script>
+
 </body></html>
