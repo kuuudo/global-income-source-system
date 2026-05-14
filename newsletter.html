@@ -168,8 +168,10 @@
         <div class="ml-form-align-center">
           <div class="ml-form-embedWrapper embedForm">
             <div class="ml-form-embedBody ml-form-embedBodyHorizontal">
-              <form action="https://assets.mailerlite.com/jsonp/2264770/forms/13233860/subscribe"
-                    class="ml-block-form" data-code="" method="post" target="_blank">
+             <form action="https://assets.mailerlite.com/jsonp/2264770/forms/187420196029334994/subscribe"
+      class="ml-block-form"
+      data-code=""
+      method="post">
                 <div class="ml-form-formContent">
                   <div class="ml-form-horizontalRow">
                     <div class="ml-input-group ml-field-email ml-validate-required ml-validate-email">
@@ -185,6 +187,7 @@
                   </div>
                 </div>
                 <input name="ml-submit" type="hidden" value="1"/>
+                <input type="hidden" name="anticsrf" value="true">
               </form>
             </div>
             <!-- Success Message -->
@@ -210,21 +213,14 @@
 </main>
 
 <!-- MailerLite success handler -->
-<script>
-  function ml_webform_success_13233860() {
-    var $ = ml_jQuery || jQuery;
-    $('.ml-subscribe-form-13233860 .ml-block-form').hide();
-    $('.ml-subscribe-form-13233860 .ml-form-successBody').show();
-  }
-</script>
 
-<!-- MailerLite Universal -->
+
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
+
 <script>
-  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-  .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-  n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-  (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-  ml('account', '2264770');
+function ml_webform_success_13233860() {
+  window.location.href = "https://www.kaksidigitals.com/newsletter-thanks";
+}
 </script>
 
 </body>
