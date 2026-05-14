@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="dark" lang="zh-TW">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>未來山姆 | Future Sam Newsletter</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-container-highest": "#353534",
+          "outline-variant": "#5c4037",
+          "outline": "#ad897e",
+          "surface-container-high": "#2a2a2a",
+          "on-background": "#e5e2e1",
+          "surface": "#131313",
+          "on-surface-variant": "#e6beb2",
+          "surface-bright": "#3a3939",
+          "background": "#131313",
+          "on-secondary-container": "#b4b5b5",
+          "primary": "#FF4D00",
+          "surface-container": "#201f1f",
+          "primary-container": "#FF4D00",
+          "on-secondary": "#2f3131",
+          "inverse-surface": "#e5e2e1",
+          "secondary-container": "#454747",
+          "surface-container-lowest": "#0e0e0e",
+          "secondary": "#c6c6c7",
+          "on-surface": "#e5e2e1",
+          "surface-container-low": "#1c1b1b",
+          "surface-variant": "#353534",
+        },
+        borderRadius: {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        fontFamily: {
+          "headline": ["Inter", "sans-serif"],
+          "display": ["Inter", "sans-serif"],
+          "body": ["Inter", "sans-serif"],
+          "label": ["Inter", "sans-serif"]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  body {
+    background-color: #131313 !important;
+    color: #e5e2e1 !important;
+  }
+  .accent-color { color: #FF4D00 !important; }
+  .content-card {
+    background-color: #1c1b1b;
+    border: 1px solid #353534;
+  }
+
+  /* MailerLite form overrides — dark theme */
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+  .ml-form-embedSubmitLoad {
+    display: inline-block; width: 20px; height: 20px;
+  }
+  .ml-form-embedSubmitLoad:after {
+    content: " "; display: block; width: 11px; height: 11px;
+    margin: 1px; border-radius: 50%;
+    border: 2px solid #fff; border-color: #fff transparent #fff transparent;
+    animation: ml-spin 1.2s linear infinite;
+  }
+  @keyframes ml-spin { 0% { transform: rotate(0) } 100% { transform: rotate(360deg) } }
+
+  #mlb2-13233860.ml-form-embedContainer { box-sizing: border-box; display: table; margin: 0 auto; position: relative; width: 100% !important; z-index: 1; }
+  #mlb2-13233860.ml-form-embedContainer .ml-form-embedWrapper { background-color: #1c1b1b; border: 1px solid #353534; border-radius: 8px; display: inline-block; margin-top: 0; width: 100%; }
+  #mlb2-13233860.ml-form-embedContainer .ml-form-embedBody { padding: 20px 20px 0 20px; }
+  #mlb2-13233860.ml-form-embedContainer .ml-form-formContent { margin-bottom: 0; }
+  #mlb2-13233860.ml-form-embedContainer .ml-form-fieldRow { margin-bottom: 10px; }
+  #mlb2-13233860.ml-form-embedContainer .ml-form-fieldRow:last-child { margin-bottom: 0; }
+  #mlb2-13233860.ml-form-embedContainer .ml-form-horizontalRow { display: flex; flex-direction: row; align-items: flex-start; }
+  #mlb2-13233860.ml-form-embedContainer .ml-form-horizontalRow .ml-input-group { flex: 1; margin-bottom: 10px; margin-right: 10px; }
+  #mlb2-13233860.ml-form-embedContainer .ml-form-horizontalRow .ml-button-group { flex: 0 0 auto; }
+  #mlb2-13233860.ml-form-embedContainer .ml-form-embedSubmit {
+    background-color: #FF4D00 !important; border: none !important; border-radius: 4px !important;
+    color: #fff !important; font-family: 'Inter', sans-serif !important;
+    font-size: 16px !important; font-weight: 700 !important;
+    line-height: 24px !important; padding: 10px 20px !important;
+    width: 100% !important; cursor: pointer;
+  }
+  #mlb2-13233860.ml-form-embedContainer .ml-form-embedSubmit:hover { filter: brightness(1.1); }
+  #mlb2-13233860.ml-form-embedContainer .form-control {
+    background-color: #2a2a2a !important; border: 1px solid #353534 !important;
+    border-radius: 4px !important; color: #e5e2e1 !important;
+    font-family: 'Inter', sans-serif !important; font-size: 16px !important;
+    line-height: 24px !important; padding: 10px !important;
+    width: 100% !important; box-sizing: border-box;
+  }
+  #mlb2-13233860.ml-form-embedContainer .form-control::placeholder { color: #888; }
+  #mlb2-13233860.ml-form-embedContainer .form-control:focus { border-color: #FF4D00 !important; outline: none; }
+
+  /* Success message — dark theme fix */
+  .ml-form-successContent { padding: 20px; }
+  .ml-form-successPage h4 { color: #e5e2e1 !important; font-family: 'Inter', sans-serif !important; font-size: 24px; font-weight: 700; margin: 0 0 10px 0; }
+  .ml-form-successPage p { color: #b4b5b5 !important; font-family: 'Inter', sans-serif !important; font-size: 16px; line-height: 24px; margin: 0; }
+</style>
+</head>
+
+<body class="font-body antialiased bg-background">
+<main class="min-h-screen flex flex-col items-center justify-center px-6 py-24 md:py-32">
+  <div class="max-w-[680px] w-full space-y-8">
+
+    <!-- Hero Card -->
+    <section class="content-card p-8 md:p-12 space-y-8 rounded-xl shadow-2xl">
+      <div class="space-y-6">
+        <h1 class="text-[36px] md:text-[52px] font-bold leading-[1.1] tracking-tight text-on-surface">
+          免費訂閱未來山脈 <span class="accent-color">→</span>
+        </h1>
+        <p class="text-lg md:text-xl leading-relaxed text-on-surface-variant font-body">
+          這是寫給想建立「<span class="text-on-surface font-semibold">全球收入來源系統</span>」的人的電子報。
+        </p>
+      </div>
+      <div class="space-y-6 pt-4 border-t border-surface-variant">
+        <ul class="space-y-5">
+          <li class="flex items-start gap-4">
+            <span class="material-symbols-outlined accent-color" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            <span class="text-md md:text-lg leading-snug">我怎麼找到海外客戶</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="material-symbols-outlined accent-color" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            <span class="text-md md:text-lg leading-snug">我如何運行一人公司（以及 AI 工具的應用）</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="material-symbols-outlined accent-color" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            <span class="text-md md:text-lg leading-snug">我其他 business 幕後正在做的事（marketing、outreach、sales etc）</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="material-symbols-outlined accent-color" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            <span class="text-md md:text-lg leading-snug">我最近正在做的專案與真實觀點（很多不會放在 YouTube）</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="material-symbols-outlined accent-color" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            <span class="text-md md:text-lg leading-snug">可以在國外賺錢的新機會與趨勢</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA Card with MailerLite Form -->
+    <section class="content-card p-8 md:p-12 space-y-8 rounded-xl shadow-xl">
+      <div class="space-y-4">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-on-surface">
+          加入我的電子報 <span class="accent-color">→</span>
+        </h2>
+        <p class="text-base md:text-lg text-on-surface-variant max-w-lg leading-relaxed">
+          輸入你的 Email。之後我有新的幕後、觀察、AI 筆記、商業實驗，會直接寄給你。（免費，隨時可以取消訂閱）
+        </p>
+      </div>
+
+      <!-- MailerLite Embed -->
+      <div class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-13233860" id="mlb2-13233860">
+        <div class="ml-form-align-center">
+          <div class="ml-form-embedWrapper embedForm">
+            <div class="ml-form-embedBody ml-form-embedBodyHorizontal">
+              <form action="https://assets.mailerlite.com/jsonp/2264770/forms/13233860/subscribe"
+                    class="ml-block-form" data-code="" method="post" target="_blank">
+                <div class="ml-form-formContent">
+                  <div class="ml-form-horizontalRow">
+                    <div class="ml-input-group ml-field-email ml-validate-required ml-validate-email">
+                      <input aria-label="email" aria-required="true" autocomplete="email"
+                             class="form-control" name="fields[email]" placeholder="你的 Email" type="email"/>
+                    </div>
+                    <div class="ml-button-group">
+                      <button class="primary ml-form-embedSubmit" type="submit">
+                        訂閱
+                        <div class="ml-form-embedSubmitLoad"></div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <input name="ml-submit" type="hidden" value="1"/>
+              </form>
+            </div>
+            <!-- Success Message -->
+            <div class="ml-form-successBody ml-form-successContent" style="display: none;">
+              <div class="ml-form-successPage text-center py-4">
+                <h4>🎉 訂閱成功！</h4>
+                <p>感謝你！下一封信很快就會寄到你的信箱。<br>Thank you! The next newsletter is on its way.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-16 flex justify-center opacity-30 hover:opacity-100 transition-all duration-500">
+      <div class="text-[10px] uppercase font-bold tracking-[0.4em] text-on-surface-variant">
+        FUTURE SAM · 未來山姆
+      </div>
+    </footer>
+
+  </div>
+</main>
+
+<!-- MailerLite success handler -->
+<script>
+  function ml_webform_success_13233860() {
+    var $ = ml_jQuery || jQuery;
+    $('.ml-subscribe-form-13233860 .ml-block-form').hide();
+    $('.ml-subscribe-form-13233860 .ml-form-successBody').show();
+  }
+</script>
+
+<!-- MailerLite Universal -->
+<script>
+  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+  .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+  n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+  (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+  ml('account', '2264770');
+</script>
+
+</body>
+</html>

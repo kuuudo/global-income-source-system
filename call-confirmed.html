@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Call Confirmed | Future Sam</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface": "#131313",
+          "on-secondary-container": "#b4b5b5",
+          "on-surface": "#e5e2e1",
+          "on-secondary": "#2f3131",
+          "primary-container": "#ff571a",
+          "on-surface-variant": "#e6beb2",
+          "on-primary": "#5e1700",
+          "surface-container-lowest": "#0e0e0e",
+          "on-secondary-fixed-variant": "#454747",
+          "inverse-surface": "#e5e2e1",
+          "secondary-container": "#454747",
+          "surface-container-low": "#1c1b1b",
+          "surface-container": "#201f1f",
+          "on-background": "#e5e2e1",
+          "inverse-on-surface": "#313030",
+          "background": "#131313",
+          "outline-variant": "#5c4037",
+          "outline": "#ad897e",
+          "surface-container-highest": "#353534",
+          "surface-container-high": "#2a2a2a",
+          "surface-bright": "#3a3939",
+          "primary-fixed-dim": "#ffb59e",
+          "primary-fixed": "#ffdbd0",
+          "primary": "#ffb59e",
+          "secondary": "#c6c6c7",
+          "surface-dim": "#131313",
+          "surface-variant": "#353534",
+          "on-secondary-fixed": "#1a1c1c",
+        },
+        borderRadius: {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        fontFamily: {
+          "headline": ["Inter", "sans-serif"],
+          "display": ["Inter", "sans-serif"],
+          "body": ["Inter", "sans-serif"],
+          "label": ["Inter", "sans-serif"]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #131313;
+    color: #e5e2e1;
+  }
+</style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-6 bg-background">
+<main class="max-w-3xl w-full text-center space-y-12 py-12">
+
+  <!-- Header -->
+  <header class="space-y-8">
+    <div class="flex justify-center">
+      <div class="bg-primary/10 p-6 rounded-full border border-primary/20 flex items-center justify-center">
+        <span class="material-symbols-outlined text-primary text-5xl"
+              style="font-variation-settings: 'FILL' 1;">check_circle</span>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <h1 class="text-on-background font-headline font-bold text-4xl md:text-5xl tracking-tight leading-tight">
+        Your Sales Call Is Confirmed<br/>
+        <span class="text-2xl md:text-3xl mt-3 block text-on-surface-variant font-medium">
+          您的諮詢預約已完成
+        </span>
+      </h1>
+      <p class="text-on-secondary-container font-body text-lg md:text-xl max-w-xl mx-auto">
+        Thank you for booking your sales call. | 感謝您預約諮詢。
+      </p>
+    </div>
+  </header>
+
+  <!-- Notice & Checklist -->
+  <section class="space-y-6">
+    <div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-8 md:p-12 space-y-10 shadow-xl">
+
+      <!-- Important Notice -->
+      <div class="space-y-4">
+        <h2 class="text-primary-fixed-dim font-bold text-xs tracking-[0.25em] uppercase font-label">
+          IMPORTANT NOTICE | 重要通知
+        </h2>
+        <p class="text-on-surface font-body text-lg md:text-xl leading-relaxed">
+          Please check your email for the confirmation details and meeting link.<br/>
+          <span class="text-base text-on-surface-variant block mt-1">
+            請檢查您的電子郵件以獲取確認詳情和會議連結。
+          </span>
+        </p>
+      </div>
+
+      <!-- Divider -->
+      <div class="h-px w-full bg-outline-variant/20"></div>
+
+      <!-- Email Checklist -->
+      <div class="space-y-6">
+        <p class="text-on-secondary-container font-medium text-xs tracking-wider uppercase font-label">
+          IF YOU DO NOT SEE THE EMAIL, PLEASE CHECK: | 若未收到郵件，請檢查：
+        </p>
+        <div class="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-x-12 gap-y-6 text-on-surface-variant font-body font-medium text-sm md:text-base">
+          <span class="flex items-center gap-3"><span class="w-2 h-2 bg-primary rounded-full"></span> Inbox | 收件匣</span>
+          <span class="flex items-center gap-3"><span class="w-2 h-2 bg-primary rounded-full"></span> Spam folder | 垃圾郵件</span>
+          <span class="flex items-center gap-3"><span class="w-2 h-2 bg-primary rounded-full"></span> Promotions | 促銷內容</span>
+          <span class="flex items-center gap-3"><span class="w-2 h-2 bg-primary rounded-full"></span> Trash folder | 垃圾桶</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing Statement -->
+    <div class="pt-6">
+      <p class="text-on-surface font-semibold text-lg md:text-2xl tracking-tight leading-relaxed">
+        Please join the meeting on time. Looking forward to speaking with you.<br/>
+        <span class="text-primary-fixed-dim mt-2 block font-medium">請準時參加會議，期待與您交流。</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="pt-12">
+    <p class="text-on-secondary-fixed font-label text-[10px] uppercase tracking-[0.4em]">
+      Future Sam | 未來山姆 © 2026
+    </p>
+  </footer>
+
+</main>
+</body>
+</html>

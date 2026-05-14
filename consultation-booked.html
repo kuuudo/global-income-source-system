@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="dark" lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>預約成功 | Consultation Confirmed</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "secondary": "#c6c6c7",
+          "on-secondary-container": "#b4b5b5",
+          "background": "#131313",
+          "on-surface": "#e5e2e1",
+          "surface-variant": "#353534",
+          "primary": "#ffb59e",
+          "outline": "#ad897e",
+          "surface-container": "#201f1f",
+          "error-container": "#93000a",
+          "surface-tint": "#ffb59e",
+          "surface": "#131313",
+          "secondary-container": "#454747",
+          "outline-variant": "#5c4037",
+          "surface-container-lowest": "#0e0e0e",
+          "on-surface-variant": "#e6beb2",
+          "on-secondary": "#2f3131",
+          "primary-fixed": "#ffdbd0",
+          "primary-container": "#ff571a",
+          "on-background": "#e5e2e1",
+          "surface-container-highest": "#353534",
+          "surface-bright": "#3a3939",
+          "surface-container-high": "#2a2a2a",
+          "surface-container-low": "#1c1b1b",
+        },
+        borderRadius: {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        spacing: {
+          "xs": "0.5rem",
+          "sm": "1rem",
+          "xl": "6rem",
+          "md": "1.5rem",
+          "lg": "3rem",
+          "unit": "4px",
+          "gutter": "24px",
+          "container-max": "1280px"
+        },
+        fontFamily: {
+          "display-xl": ["Inter"],
+          "label-caps": ["Inter"],
+          "body-md": ["Inter"],
+          "body-lg": ["Inter"],
+          "headline-lg": ["Inter"],
+          "headline-md": ["Inter"]
+        },
+        fontSize: {
+          "display-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+          "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+          "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+          "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+          "headline-md": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body {
+    background-color: #0A0A0A;
+    color: #e5e2e1;
+  }
+  .glass-card {
+    background: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+  }
+  .glow-accent {
+    background: radial-gradient(circle at center, rgba(255, 77, 0, 0.15) 0%, transparent 70%);
+  }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+</style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary-container selection:text-white overflow-x-hidden">
+
+<!-- Background Aura -->
+<div class="fixed inset-0 glow-accent pointer-events-none -z-10"></div>
+
+<main class="max-w-container-max mx-auto px-gutter py-xl flex flex-col items-center justify-center min-h-screen text-center">
+
+  <!-- Hero Section -->
+  <section class="mb-lg max-w-3xl">
+    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-container mb-md">
+      <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+    </div>
+    <h1 class="font-headline-lg text-headline-lg mb-sm tracking-tighter text-white">
+      您的諮詢已成功預約<br>
+      <span class="opacity-80">Your consultation is confirmed</span>
+    </h1>
+    <p class="font-body-lg text-body-lg text-on-secondary-container">
+      我們已收到您的預約與付款。 We have received your booking and payment.
+    </p>
+  </section>
+
+  <!-- Email Confirmation Card -->
+  <section class="w-full max-w-2xl glass-card rounded-xl p-md md:p-lg mb-lg relative overflow-hidden">
+    <div class="flex flex-col items-center gap-4">
+      <span class="material-symbols-outlined text-[#FF4D00] text-3xl">mail</span>
+      <p class="font-headline-md text-body-lg text-white font-semibold">
+        我們已經將確認信寄送到您的電子郵件。<br>
+        <span class="font-normal opacity-70">We have sent a confirmation email to your inbox.</span>
+      </p>
+      <div class="mt-sm p-sm bg-[#FF4D00]/10 border border-[#FF4D00]/20 rounded-lg">
+        <p class="text-[#FF4D00] font-semibold text-sm tracking-wide">
+          重要提醒： Important:
+        </p>
+        <p class="text-[#FF4D00] text-sm mt-xs">
+          如果您沒有看到郵件，請務必檢查「垃圾郵件」或「促銷分類」。<br>
+          If you don't see it, please check Spam or Promotions folder.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preparation Section -->
+  <section class="w-full max-w-3xl mb-lg">
+    <h2 class="font-headline-md text-headline-md mb-md text-white">
+      為了讓這次會議更有效率，建議您提前準備：<br>
+      <span class="text-body-lg font-normal opacity-60">To make the session more effective, please prepare:</span>
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter text-left">
+      <div class="glass-card p-md rounded-xl">
+        <span class="material-symbols-outlined text-primary-container mb-xs">work</span>
+        <p class="text-white font-semibold mb-xs">您目前正在做的事情</p>
+        <p class="text-on-secondary-container text-sm">What you are currently working on</p>
+      </div>
+      <div class="glass-card p-md rounded-xl">
+        <span class="material-symbols-outlined text-primary-container mb-xs">warning</span>
+        <p class="text-white font-semibold mb-xs">您最大的挑戰</p>
+        <p class="text-on-secondary-container text-sm">Your biggest challenges</p>
+      </div>
+      <div class="glass-card p-md rounded-xl">
+        <span class="material-symbols-outlined text-primary-container mb-xs">flag</span>
+        <p class="text-white font-semibold mb-xs">您想達成的目標</p>
+        <p class="text-on-secondary-container text-sm">Your desired outcome</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="max-w-2xl mb-lg">
+    <div class="p-md bg-white/5 rounded-full inline-block mb-md">
+      <span class="material-symbols-outlined text-white">alternate_email</span>
+    </div>
+    <p class="font-body-lg text-body-lg text-on-secondary-container mb-xs">
+      如果您希望我在會議前更了解您的業務或問題，可以透過以下郵件聯絡我：
+    </p>
+    <p class="font-body-lg text-body-lg text-on-secondary-container mb-sm">
+      If you would like me to understand your business or inquiry before the session, contact me here:
+    </p>
+    <a class="font-headline-md text-headline-md text-[#FF4D00] hover:opacity-80 transition-all border-b border-[#FF4D00]/30 hover:border-[#FF4D00]"
+       href="mailto:consulting@kaksidigital.com">
+      consulting@kaksidigital.com
+    </a>
+  </section>
+
+  <!-- Closing Line -->
+  <footer class="mt-lg pt-lg border-t border-white/10 w-full max-w-xl">
+    <p class="font-headline-md text-headline-md text-white mb-2">
+      請準時加入會議，期待與您交流。
+    </p>
+    <p class="font-body-lg text-body-lg text-on-secondary-container">
+      Please join on time. Looking forward to speaking with you.
+    </p>
+  </footer>
+
+</main>
+
+<!-- Footer -->
+<footer class="w-full border-t border-white/10 bg-neutral-950 mt-xl">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center py-12 px-6 gap-6">
+    <div class="text-lg font-black tracking-tighter text-white">🌍 Global Income Source System</div>
+    <div class="font-['Inter'] text-sm tracking-tight text-neutral-400 opacity-80">
+      © 2026 Global Income Source System. 版權所有。
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

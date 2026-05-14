@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Book Your Consultation | Global Income Source System</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-container": "#1a1a1a",
+          "surface-container-highest": "#262626",
+          "on-surface": "#FFFFFF",
+          "primary-container": "#FF4D00",
+          "secondary-container": "#2a2a2a",
+          "primary": "#FF4D00",
+          "surface-bright": "#1f1f1f",
+          "surface-container-lowest": "#131313",
+          "on-surface-variant": "#a1a1a1",
+          "on-secondary-container": "#a1a1a1",
+          "on-background": "#FFFFFF",
+          "on-primary-container": "#ffffff",
+          "surface-container-high": "#212121",
+          "surface-variant": "#1a1a1a",
+          "surface-dim": "#131313",
+          "surface": "#131313",
+          "on-secondary": "#ffffff",
+          "secondary": "#a1a1a1",
+          "surface-container-low": "#171717",
+          "outline-variant": "#2a2a2a",
+          "background": "#131313",
+        },
+        fontFamily: {
+          "headline-xl": ["Inter"],
+          "body-lg": ["Inter"],
+          "body-md": ["Inter"],
+          "label-md": ["Inter"],
+          "button": ["Inter"],
+        },
+        fontSize: {
+          "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+          "headline-xl-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+          "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+          "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+          "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "500" }],
+          "button": ["16px", { lineHeight: "24px", fontWeight: "600" }],
+        },
+        spacing: {
+          "xs": "4px",
+          "sm": "12px",
+          "md": "24px",
+          "lg": "48px",
+          "xl": "80px",
+          "container-max": "1200px",
+          "gutter": "24px",
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body {
+    background-color: #131313;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+  }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #131313; }
+  ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
+</style>
+</head>
+<body class="bg-surface-container-lowest min-h-screen flex flex-col font-body-md text-on-surface">
+
+<main class="flex-grow flex flex-col items-center justify-start px-md py-xl lg:py-[120px]">
+  <div class="max-w-[800px] w-full text-center">
+
+    <!-- Header -->
+    <header class="mb-lg">
+      <h1 class="font-headline-xl-mobile text-headline-xl-mobile md:font-headline-xl md:text-headline-xl mb-md" style="color: #FF4D00;">
+        Book Your 60-Minute Consultation<br class="hidden md:block">
+        預約您的 60 分鐘諮詢
+      </h1>
+      <p class="font-body-lg text-body-lg max-w-[650px] mx-auto" style="color: #a0a0a0;">
+        Choose a time that works for you and complete your booking below.<br>
+        選擇適合您的時間並在下方完成預約。
+      </p>
+    </header>
+
+    <!-- TidyCal Booking Widget -->
+    <div class="w-full bg-white rounded-lg overflow-hidden min-h-[600px] shadow-2xl">
+      <iframe
+        src="https://tidycal.com/kuudo/future-sam-60-minute?embed=1"
+        id="tidycal-embed"
+        class="tidycal-embed"
+        title="Book a Consultation"
+        allow="payment"
+        scrolling="no"
+        style="border: none; width: 1px; min-width: 100%; height: 500px; overflow: hidden; min-height: 500px;">
+      </iframe>
+      <script async src="https://asset-tidycal.b-cdn.net/js/embed.js"></script>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full py-lg px-md flex flex-col md:flex-row justify-center items-center gap-md border-t border-white/10">
+  <div class="flex flex-col items-center gap-sm">
+    <p class="font-label-md text-label-md" style="color: #808080;">
+      © 2026 Global Income Source System. 版權所有。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
