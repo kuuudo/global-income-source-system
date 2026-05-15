@@ -195,6 +195,17 @@
     </div>
   </div>
 </footer>
-
+<!-- V-Track Pixel: consultation -->
+<script>
+  fetch('https://vstrk.com/api/pixel', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      campaign_id: '5289dfd2-5c79-4827-a5f3-4f047734ee46',
+      event_type: 'consultation',
+      amount: 100
+    })
+  });
+</script>
 </body>
 </html>

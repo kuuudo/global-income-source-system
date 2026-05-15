@@ -143,7 +143,18 @@
       Future Sam | 未來山姆 © 2026
     </p>
   </footer>
-
+<!-- V-Track Pixel: sales_call -->
+<script>
+  fetch('https://vstrk.com/api/pixel', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      campaign_id: '5289dfd2-5c79-4827-a5f3-4f047734ee46',
+      event_type: 'sales_call',
+      amount: 39.4
+    })
+  });
+</script>
 </main>
 </body>
 </html>
