@@ -2,6 +2,20 @@
 <meta charset="utf-8"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Global Income Source System</title>
+
+<script>
+(function() {
+  const p = new URLSearchParams(window.location.search);
+
+  const sid = p.get('vt_sid');
+  const vid = p.get('vt_vid');
+  const cid = p.get('vt_cid');
+
+  if (sid) localStorage.setItem('yt_tracker_session_id', sid);
+  if (vid) localStorage.setItem('yt_tracker_video_id', vid);
+  if (cid) localStorage.setItem('yt_tracker_campaign_id', cid);
+})();
+</script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
