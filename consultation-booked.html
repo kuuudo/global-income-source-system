@@ -197,15 +197,64 @@
 </footer>
 <!-- V-Track Pixel: consultation -->
 <script>
+(function () {
+  const CONFIG = {
+    campaign_id: '6796ed7f-2226-4c6d-82f7-d293236b9a63',
+    event_type: 'consultation',
+    default_video_id: 'unknown'
+  };
+
+  // ===== READ ATTRIBUTION =====
+  const params = new URLSearchParams(window.location.search);
+
+  const sessionId =
+    params.get('vt_sid') ||
+    localStorage.getItem('yt_tracker_session_id');
+
+  const videoId =
+    params.get('vt_vid') ||
+    localStorage.getItem('yt_tracker_video_id') ||
+    CONFIG.default_video_id;
+
+  const campaignId =
+    params.get('vt_cid') ||
+    localStorage.getItem('yt_tracker_campaign_id') ||
+    CONFIG.campaign_id;
+
+  // ===== PERSIST =====
+  if (sessionId) {
+    localStorage.setItem('yt_tracker_session_id', sessionId);
+  }
+
+  if (videoId) {
+    localStorage.setItem('yt_tracker_video_id', videoId);
+  }
+
+  if (campaignId) {
+    localStorage.setItem('yt_tracker_campaign_id', campaignId);
+  }
+
+  // ===== FIRE PIXEL =====
+  const payload = {
+    session_id: sessionId,
+    video_id: videoId,
+    campaign_id: campaignId,
+    event_type: CONFIG.event_type,
+    amount: 100
+  };
+
+  console.debug('[V-Track] firing pixel:', payload);
+
   fetch('https://www.vstrk.com/api/pixel', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      campaign_id: '6796ed7f-2226-4c6d-82f7-d293236b9a63',
-      event_type: 'consultation',
-      amount: 100
-    })
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
   });
+})();
 </script>
+
+
 </body>
 </html>
