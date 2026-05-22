@@ -144,42 +144,35 @@
     </p>
   </footer>
 <!-- V-Track Pixel: sales_call -->
+<script>
 (function () {
   const CONFIG = {
     campaign_id: '6796ed7f-2226-4c6d-82f7-d293236b9a63',
     event_type: 'sales_call',
     default_video_id: 'unknown'
   };
-
   const params = new URLSearchParams(window.location.search);
-
   const sessionId =
     params.get('vt_sid') || localStorage.getItem('yt_tracker_session_id');
-
   const videoId =
     params.get('vt_vid') ||
     localStorage.getItem('yt_tracker_video_id') ||
     CONFIG.default_video_id;
-
   const campaignId =
     params.get('vt_cid') ||
     localStorage.getItem('yt_tracker_campaign_id') ||
     CONFIG.campaign_id;
-
   if (sessionId) localStorage.setItem('yt_tracker_session_id', sessionId);
   if (videoId) localStorage.setItem('yt_tracker_video_id', videoId);
   if (campaignId) localStorage.setItem('yt_tracker_campaign_id', campaignId);
-
   const payload = {
     session_id: sessionId,
     video_id: videoId,
     campaign_id: campaignId,
     event_type: CONFIG.event_type,
-    
+    ...(CONFIG.event_type !== 'sales_call' && { amount: 0 })
   };
-
   console.debug('[V-Track] firing pixel:', payload);
-
   fetch('https://www.vstrk.com/api/pixel', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
