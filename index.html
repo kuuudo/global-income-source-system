@@ -884,42 +884,24 @@
     });
 </script>
 
-<!-- V-Track Pixel: purchase -->
+<!-- 
+  VSTRK Tracking Snippet
+  Paste this once, just before </body> on your landing page.
+  It reads ?ref=TOKEN from the URL and appends client_reference_id
+  to every Stripe button on the page automatically.
+-->
 <script>
-(function () {
-  const CONFIG = {
-    campaign_id: '43f6fe9a-6ed8-410a-98ac-93cd8a0e4efa',
-    event_type: 'purchase',
-    default_video_id: 'unknown'
-  };
-  const params = new URLSearchParams(window.location.search);
-  const sessionId =
-    params.get('vt_sid') || localStorage.getItem('yt_tracker_session_id');
-  const videoId =
-    params.get('vt_vid') ||
-    localStorage.getItem('yt_tracker_video_id') ||
-    CONFIG.default_video_id;
-  const campaignId =
-    params.get('vt_cid') ||
-    localStorage.getItem('yt_tracker_campaign_id') ||
-    CONFIG.campaign_id;
-  if (sessionId) localStorage.setItem('yt_tracker_session_id', sessionId);
-  if (videoId) localStorage.setItem('yt_tracker_video_id', videoId);
-  if (campaignId) localStorage.setItem('yt_tracker_campaign_id', campaignId);
-  const payload = {
-    session_id: sessionId,
-    video_id: videoId,
-    campaign_id: campaignId,
-    event_type: CONFIG.event_type,
-    amount: 0
-  };
-  console.debug('[V-Track] firing pixel:', payload);
-  fetch('https://www.vstrk.com/api/pixel', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  });
-})();
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get('ref');
+    if (!ref) return;
+
+    document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(function (el) {
+      const url = new URL(el.getAttribute('href'));
+      url.searchParams.set('client_reference_id', ref);
+      el.setAttribute('href', url.toString());
+    });
+  })();
 </script>
 
 </body></html>
