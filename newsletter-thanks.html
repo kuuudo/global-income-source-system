@@ -120,7 +120,7 @@
 <script>
 (function () {
   const CONFIG = {
-    campaign_id: '6796ed7f-2226-4c6d-82f7-d293236b9a63',
+    
     event_type: 'newsletter',
     default_video_id: 'unknown'
   };
@@ -138,7 +138,7 @@
   const campaignId =
     params.get('vt_cid') ||
     localStorage.getItem('yt_tracker_campaign_id') ||
-    CONFIG.campaign_id;
+    null;
 
   if (sessionId) localStorage.setItem('yt_tracker_session_id', sessionId);
   if (videoId) localStorage.setItem('yt_tracker_video_id', videoId);
