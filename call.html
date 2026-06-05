@@ -51,6 +51,31 @@
     }
   }
 </script>
+
+<script>
+(function() {
+  const p = new URLSearchParams(window.location.search);
+
+  const sid = p.get('vt_sid');
+  const vid = p.get('vt_vid');
+  const cid = p.get('vt_cid');
+
+  if (sid) localStorage.setItem('yt_tracker_session_id', sid);
+  if (vid) localStorage.setItem('yt_tracker_video_id', vid);
+  if (cid) localStorage.setItem('yt_tracker_campaign_id', cid);
+
+  if (sid || vid || cid) {
+    const clean = new URL(window.location.href);
+
+    clean.searchParams.delete('vt_sid');
+    clean.searchParams.delete('vt_vid');
+    clean.searchParams.delete('vt_cid');
+
+    window.history.replaceState({}, '', clean.toString());
+  }
+})();
+</script>
+
 <style>
   .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;

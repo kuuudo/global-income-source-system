@@ -8,7 +8,29 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+(function() {
+  const p = new URLSearchParams(window.location.search);
 
+  const sid = p.get('vt_sid');
+  const vid = p.get('vt_vid');
+  const cid = p.get('vt_cid');
+
+  if (sid) localStorage.setItem('yt_tracker_session_id', sid);
+  if (vid) localStorage.setItem('yt_tracker_video_id', vid);
+  if (cid) localStorage.setItem('yt_tracker_campaign_id', cid);
+
+  if (sid || vid || cid) {
+    const clean = new URL(window.location.href);
+
+    clean.searchParams.delete('vt_sid');
+    clean.searchParams.delete('vt_vid');
+    clean.searchParams.delete('vt_cid');
+
+    window.history.replaceState({}, '', clean.toString());
+  }
+})();
+</script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
 <script>
