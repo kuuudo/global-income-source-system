@@ -76,6 +76,25 @@
   ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 4px; }
   ::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
 </style>
+<!-- ADD THIS SCRIPT HERE -->
+<script>
+(function() {
+  const p = new URLSearchParams(window.location.search);
+  const sid = p.get('vt_sid');
+  const vid = p.get('vt_vid');
+  const cid = p.get('vt_cid');
+  if (sid) localStorage.setItem('yt_tracker_session_id', sid);
+  if (vid) localStorage.setItem('yt_tracker_video_id', vid);
+  if (cid) localStorage.setItem('yt_tracker_campaign_id', cid);
+  if (sid || vid || cid) {
+    const clean = new URL(window.location.href);
+    clean.searchParams.delete('vt_sid');
+    clean.searchParams.delete('vt_vid');
+    clean.searchParams.delete('vt_cid');
+    window.history.replaceState({}, '', clean.toString());
+  }
+})();
+</script>
 </head>
 <body class="bg-surface-container-lowest min-h-screen flex flex-col font-body-md text-on-surface">
 
