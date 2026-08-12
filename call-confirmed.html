@@ -201,8 +201,7 @@
     tracking_hostname: trackingHostname,
     first_touch_redirect_link_id: firstTouchRedirectLinkId,
     redirect_link_id: redirectLinkId,
-    event_type: CONFIG.event_type,
-    ...(CONFIG.event_type !== 'sales_call' && { amount: 39.4 })
+    event_type: CONFIG.event_type
   };
   console.debug('[VS-Track] firing pixel:', payload);
   fetch('https://www.vstrk.com/api/pixel', {

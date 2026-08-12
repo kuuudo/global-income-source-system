@@ -163,7 +163,7 @@
       <span class="material-symbols-outlined text-white">alternate_email</span>
     </div>
     <p class="font-body-lg text-body-lg text-on-secondary-container mb-xs">
-      如果您希望我在會議前更了解您的業務或問題，可以透過以下郵件聯絡我：
+      如果您希望我在會議前更了解您的業務或問題，您可以透過以下郵件聯絡我：
     </p>
     <p class="font-body-lg text-body-lg text-on-secondary-container mb-sm">
       If you would like me to understand your business or inquiry before the session, contact me here:
@@ -254,8 +254,7 @@
     tracking_hostname: trackingHostname,
     first_touch_redirect_link_id: firstTouchRedirectLinkId,
     redirect_link_id: redirectLinkId,
-    event_type: CONFIG.event_type,
-    ...(CONFIG.event_type !== 'sales_call' && { amount: 100 })
+    event_type: CONFIG.event_type
   };
   console.debug('[VS-Track] firing pixel:', payload);
   fetch('https://www.vstrk.com/api/pixel', {
