@@ -8,25 +8,42 @@
   const p = new URLSearchParams(window.location.search);
 
   const sid = p.get('vt_sid');
-
-  
   const vid = p.get('vt_vid');
   const cid = p.get('vt_cid');
+  const oid = p.get('vt_oid');
+  const pid = p.get('vt_pid');
+  const aid = p.get('vt_aid');
+  const th  = p.get('vt_th');
+  const ftRlid = p.get('vt_first_touch_redirect_link_id');
+  const rlid = p.get('vt_rlid');
 
   if (sid) localStorage.setItem('yt_tracker_session_id', sid);
   if (vid) localStorage.setItem('yt_tracker_video_id', vid);
   if (cid) localStorage.setItem('yt_tracker_campaign_id', cid);
-  // After reading and storing the params, clean the URL
-  if (sid || vid || cid) {
-  const clean = new URL(window.location.href);
-  clean.searchParams.delete('vt_sid');
-  clean.searchParams.delete('vt_vid');
-  clean.searchParams.delete('vt_cid');
-  window.history.replaceState({}, '', clean.toString());
-}
+  if (oid) localStorage.setItem('yt_tracker_organization_id', oid);
+  if (pid) localStorage.setItem('yt_tracker_promotion_id', pid);
+  if (aid) localStorage.setItem('yt_tracker_asset_id', aid);
+  if (th)  localStorage.setItem('yt_tracker_tracking_hostname', th);
+  if (ftRlid) localStorage.setItem('yt_tracker_ft_redirect_link_id', ftRlid);
+  if (rlid) localStorage.setItem('yt_tracker_redirect_link_id', rlid);
+
+  if (sid || vid || cid || oid || pid || aid || th || ftRlid || rlid) {
+    const clean = new URL(window.location.href);
+
+    clean.searchParams.delete('vt_sid');
+    clean.searchParams.delete('vt_vid');
+    clean.searchParams.delete('vt_cid');
+    clean.searchParams.delete('vt_oid');
+    clean.searchParams.delete('vt_pid');
+    clean.searchParams.delete('vt_aid');
+    clean.searchParams.delete('vt_th');
+    clean.searchParams.delete('vt_first_touch_redirect_link_id');
+    clean.searchParams.delete('vt_rlid');
+
+    window.history.replaceState({}, '', clean.toString());
+  }
 })();
 </script>
-
 
 
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
